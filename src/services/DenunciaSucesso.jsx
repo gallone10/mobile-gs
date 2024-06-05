@@ -3,17 +3,17 @@ import { StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image } from
 import { useNavigation } from '@react-navigation/native'; // Importar o hook useNavigation
 
 export default function DenunciaSucesso() {
-  const navigation = useNavigation(); // Obter o objeto de navegação
+  const navigation = useNavigation(); 
 
   const voltar = () => {
-    // Lógica para retornar à página anterior
-    navigation.navigate('Home'); // Navegar para a página Home
+    
+    navigation.navigate('Home'); 
   };
 
   return (
-    <ImageBackground source={require('../oceano-atlantico-caracteristicas-importancia-e-curiosidades (1).png')} style={styles.background}>
+    <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-        <Image source={require('../logo.png')} style={styles.logo} />
+      <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Denúncia Enviada com Sucesso!</Text>
         <Text style={styles.successText}>Obrigado por contribuir com a segurança das praias!</Text>
         <TouchableOpacity onPress={voltar} style={styles.button}>

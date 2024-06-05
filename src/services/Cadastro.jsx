@@ -34,9 +34,9 @@ export default function Cadastro() {
   };
 
   return (
-    <ImageBackground source={require('../oceano-atlantico-caracteristicas-importancia-e-curiosidades (1).png')} style={styles.background}>
+    <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-        <Image source={require('../logo.png')} style={styles.logo} />
+      <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Cadastro</Text>
         <TextInput
           placeholder='Digite seu nome:'

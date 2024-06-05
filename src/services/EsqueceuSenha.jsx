@@ -21,9 +21,9 @@ export default function ForgotPassword() {
   };
 
   return (
-    <ImageBackground source={require('../oceano-atlantico-caracteristicas-importancia-e-curiosidades (1).png')} style={styles.background}>
+    <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-        <Image source={require('../logo.png')} style={styles.logo} />
+      <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Esqueceu sua senha?</Text>
         <Text style={styles.instruction}>Digite seu email abaixo para redefinir sua senha:</Text>
         <TextInput
