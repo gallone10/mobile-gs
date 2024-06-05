@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './components/Home.jsx';
-import Cadastro from './components/Cadastro.jsx'
-import Login from './components/Login.jsx'
-import EsqueceuSenha from './components/EsqueceuSenha.jsx'
-import Denuncia from './components/Denuncia.jsx'
-import DenunciaSucesso from './components/DenunciaSucesso.jsx'
-import CadastroSucesso from './components/CadastroSucesso.jsx'
-import LoginSucesso from './components/LoginSucesso.jsx'
-import SenhaSucesso from './components/SenhaSucesso.jsx'
+import HomeScreen from './src/services/Home.jsx';
+import Cadastro from './src/services/Cadastro.jsx'
+import Login from './src/services/Login.jsx'
+import EsqueceuSenha from './src/services/EsqueceuSenha.jsx'
+import Denuncia from './src/services/Denuncia.jsx'
+import DenunciaSucesso from './src/services/DenunciaSucesso.jsx'
+import CadastroSucesso from './src/services/CadastroSucesso.jsx'
+import LoginSucesso from './src/services/LoginSucesso.jsx'
+import SenhaSucesso from './src/services/SenhaSucesso.jsx'
 
 
 const Stack = createStackNavigator();
