@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import { auth } from './FirebaseConfig';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
@@ -28,7 +28,7 @@ export default function Cadastro() {
     }
 
     try {
-      // Cria o usuário com email e senha no Firebase
+      
       await createUserWithEmailAndPassword(auth, email, senha);
       alert('Cadastro realizado com sucesso!');
       navigation.navigate('CadastroSucesso');
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor de fundo #20B2AA
+    backgroundColor: 'rgba(0,0,0,0.3)',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,

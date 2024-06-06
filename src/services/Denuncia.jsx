@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor de fundo
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   input: {
@@ -111,10 +111,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 25,
-    backgroundColor: '#fff', // Cor branca para o fundo dos inputs
+    backgroundColor: '#fff', 
   },
   descricaoInput: {
-    height: 100, // Altura da caixa de texto da descrição
+    height: 100, 
   },
   button: {
     backgroundColor: '#007BFF',

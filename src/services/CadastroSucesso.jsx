@@ -6,7 +6,7 @@ export default function CadastroSucesso() {
   const navigation = useNavigation();
 
   const voltarParaLogin = () => {
-    navigation.navigate('Login'); // Navegar de volta para a página de login
+    navigation.navigate('Login'); 
   };
 
   return (
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor de fundo
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -44,12 +44,12 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   successText: {
     fontSize: 16,
-    color: '#fff', // Cor branca para o texto de sucesso
+    color: '#fff', 
     marginBottom: 20,
   },
   button: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ImageBackground, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importar o hook useNavigation
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function DenunciaSucesso() {
   const navigation = useNavigation(); 
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor de fundo
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   successText: {
     fontSize: 16,
-    color: '#fff', // Cor branca para o texto de sucesso
+    color: '#fff', 
     marginBottom: 20,
   },
   button: {

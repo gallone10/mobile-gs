@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image } from 'react-native'; // Import Image from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native';
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   const [senha, setSenha] = useState('');
 
   const cadastrar = () => {
-    // Aqui você pode adicionar a lógica para criar o usuário
+    
     navigation.navigate('Cadastro'); 
   };
 
@@ -22,7 +22,7 @@ export default function App() {
   };
 
   const fazerDenuncia = () => {
-    // Sua lógica para fazer a denúncia aqui
+    
     navigation.navigate('Denuncia');
   };
 
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor azul claro
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   input: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
-    backgroundColor: '#fff', // Cor branca para o fundo dos inputs
+    backgroundColor: '#fff', 
   },
   button: {
     backgroundColor: '#007BFF',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   denunciaButton: {
-    backgroundColor: '#007BFF', // Mesma cor dos outros botões
+    backgroundColor: '#007BFF', 
   },
   buttonText: {
     color: '#fff',

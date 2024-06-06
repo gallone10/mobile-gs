@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, Pressable, View, ImageBackground, Image, Alert } from 'react-native'; // Troque TouchableOpacity por Pressable
+import { StyleSheet, Text, TextInput, Pressable, View, ImageBackground, Image, Alert } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native';
-import { auth } from './FirebaseConfig'; // Importando o objeto 'auth' do Firebase
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Importando a função 'signInWithEmailAndPassword' do Firebase
+import { auth } from './FirebaseConfig'; //
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
 
 export default function Login() {
   const navigation = useNavigation();
@@ -12,28 +12,28 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      // Verifica se os campos estão preenchidos
+      
       if (email.trim() === '' || senha.trim() === '') {
         Alert.alert('Preencha todos os campos!');
         return;
       }
 
-      // Verifica se o campo de email contém o caractere "@"
+      
       if (!email.includes('@')) {
         Alert.alert('O email deve conter o caractere "@"!');
         return;
       }
 
-      // Faz login com email e senha no Firebase
+      
       await signInWithEmailAndPassword(auth, email, senha);
       navigation.navigate('LoginSucesso');
     } catch (error) {
-      Alert.alert('Erro ao fazer login', error.message); // Verifique se o erro está sendo passado corretamente
+      Alert.alert('Erro ao fazer login', error.message); 
     }
   };
 
   const handleEsqueceuSenha = async () => {
-    // Sua lógica de redefinição de senha aqui
+    
     navigation.navigate('EsqueceuSenha');
   };
 
@@ -59,10 +59,10 @@ export default function Login() {
           secureTextEntry={true}
           style={styles.input}
         />
-        <Pressable onPress={handleLogin} style={styles.button}> {/* Troque TouchableOpacity por Pressable */}
+        <Pressable onPress={handleLogin} style={styles.button}> 
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
-        <Pressable onPress={handleEsqueceuSenha} style={styles.button}> {/* Troque TouchableOpacity por Pressable */}
+        <Pressable onPress={handleEsqueceuSenha} style={styles.button}> 
           <Text style={styles.buttonText}>Esqueceu a senha</Text>
         </Pressable>
       </View>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor azul claro
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   input: {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 35,
-    backgroundColor: '#fff', // Cor branca para o fundo dos inputs
+    backgroundColor: '#fff',
   },
   button: {
     backgroundColor: '#007BFF',

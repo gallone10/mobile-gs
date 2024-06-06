@@ -8,7 +8,7 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState('');
 
   const handleResetPassword = () => {
-    // Sua lógica de redefinição de senha aqui
+    
     navigation.navigate('SenhaSucesso');
   };
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)', // Cor azul claro
+    backgroundColor: 'rgba(0,0,0,0.3)', 
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 10,
   },
   instruction: {
     fontSize: 16,
-    color: '#fff', // Cor branca para o texto de instrução
+    color: '#fff', 
     marginBottom: 20,
   },
   input: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 35,
-    backgroundColor: '#fff', // Cor branca para o fundo dos inputs
+    backgroundColor: '#fff', 
   },
   button: {
     backgroundColor: '#007BFF',
