@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { db } from './FirebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function Denuncia() {
   const [cidade, setCidade] = useState('');
@@ -9,13 +11,25 @@ export default function Denuncia() {
   const [descricao, setDescricao] = useState('');
   const navigation = useNavigation();
 
-  const enviarDenuncia = () => {
-    // Lógica para enviar a denúncia
+  const enviarDenuncia = async () => {
+    try {
+      const docRef = await addDoc(collection(db, 'denuncias'), {
+        cidade,
+        latitude,
+        longitude,
+        descricao,
+        timestamp: new Date(),
+      });
+      Alert.alert('Denúncia enviada com sucesso!', `ID da denúncia: ${docRef.id}`);
+      navigation.navigate('DenunciaSucesso');
+    } catch (error) {
+      Alert.alert('Erro ao enviar denúncia', error.message);
+    }
   };
 
   const validarCampos = () => {
     if (cidade.trim() === '' || latitude.trim() === '' || longitude.trim() === '' || descricao.trim() === '') {
-      alert('Por favor, preencha todos os campos.');
+      Alert.alert('Por favor, preencha todos os campos.');
       return false;
     }
     return true;
@@ -24,14 +38,13 @@ export default function Denuncia() {
   const handleEnviarDenuncia = () => {
     if (validarCampos()) {
       enviarDenuncia();
-      navigation.navigate('DenunciaSucesso');
     }
   };
 
   return (
     <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-      <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Denúncia</Text>
         <TextInput
           placeholder='Cidade:'

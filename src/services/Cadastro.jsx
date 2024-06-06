@@ -1,42 +1,46 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importar o hook useNavigation
+import { useNavigation } from '@react-navigation/native'; 
+import { auth } from './FirebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
-  const navigation = useNavigation(); // Obter o objeto de navegação
+  const navigation = useNavigation(); 
 
-  const cadastrar = () => {
-    // Verifica se todos os campos estão preenchidos
+  const cadastrar = async () => {
     if (nome.trim() === '' || email.trim() === '' || senha.trim() === '' || confirmarSenha.trim() === '') {
       alert('Por favor, preencha todos os campos!');
       return;
     }
 
-    // Verifica se a senha e a confirmação da senha correspondem
     if (senha !== confirmarSenha) {
       alert('As senhas não correspondem!');
       return;
     }
 
-    // Verifica se o email contém o caractere "@"
     if (!email.includes('@')) {
       alert('O email deve conter o caractere "@"!');
       return;
     }
 
-    // Lógica para cadastrar o usuário
-    // Após o cadastro bem-sucedido, navegue para a página CadastroSucesso
-    navigation.navigate('CadastroSucesso'); // Navegar para a página CadastroSucesso
+    try {
+      // Cria o usuário com email e senha no Firebase
+      await createUserWithEmailAndPassword(auth, email, senha);
+      alert('Cadastro realizado com sucesso!');
+      navigation.navigate('CadastroSucesso');
+    } catch (error) {
+      alert(`Erro ao cadastrar: ${error.message}`);
+    }
   };
 
   return (
     <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-      <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Cadastro</Text>
         <TextInput
           placeholder='Digite seu nome:'
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Cor branca para o texto de boas-vindas
+    color: '#fff', 
     marginBottom: 20,
   },
   input: {
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 25,
-    backgroundColor: '#fff', // Cor branca para o fundo dos inputs
+    backgroundColor: '#fff', 
   },
   button: {
     backgroundColor: '#007BFF',

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground, Image, Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, Pressable, View, ImageBackground, Image, Alert } from 'react-native'; // Troque TouchableOpacity por Pressable
 import { useNavigation } from '@react-navigation/native';
+import { auth } from './FirebaseConfig'; // Importando o objeto 'auth' do Firebase
+import { signInWithEmailAndPassword } from 'firebase/auth'; // Importando a função 'signInWithEmailAndPassword' do Firebase
 
 export default function Login() {
   const navigation = useNavigation();
@@ -8,22 +10,26 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  const handleLogin = () => {
-    // Verifica se os campos estão preenchidos
-    if (email.trim() === '' || senha.trim() === '') {
-      Alert.alert('Preencha todos os campos!');
-      return;
-    }
-    
-    // Verifica se o campo de email contém o caractere "@"
-    if (!email.includes('@')) {
-      Alert.alert('O email deve conter o caractere "@"!');
-      return;
-    }
+  const handleLogin = async () => {
+    try {
+      // Verifica se os campos estão preenchidos
+      if (email.trim() === '' || senha.trim() === '') {
+        Alert.alert('Preencha todos os campos!');
+        return;
+      }
 
-    // Sua lógica de login aqui
-    // Suponha que após a lógica de login, a navegação para a página de sucesso seja feita
-    navigation.navigate('LoginSucesso');
+      // Verifica se o campo de email contém o caractere "@"
+      if (!email.includes('@')) {
+        Alert.alert('O email deve conter o caractere "@"!');
+        return;
+      }
+
+      // Faz login com email e senha no Firebase
+      await signInWithEmailAndPassword(auth, email, senha);
+      navigation.navigate('LoginSucesso');
+    } catch (error) {
+      Alert.alert('Erro ao fazer login', error.message); // Verifique se o erro está sendo passado corretamente
+    }
   };
 
   const handleEsqueceuSenha = async () => {
@@ -38,7 +44,7 @@ export default function Login() {
   return (
     <ImageBackground source={require('../../assets/fundo.png')} style={styles.background}>
       <View style={styles.container}>
-      <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.welcomeText}>Login!</Text>
         <TextInput
           placeholder='Digite seu email:'
@@ -53,12 +59,12 @@ export default function Login() {
           secureTextEntry={true}
           style={styles.input}
         />
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
+        <Pressable onPress={handleLogin} style={styles.button}> {/* Troque TouchableOpacity por Pressable */}
           <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleEsqueceuSenha} style={styles.button}>
+        </Pressable>
+        <Pressable onPress={handleEsqueceuSenha} style={styles.button}> {/* Troque TouchableOpacity por Pressable */}
           <Text style={styles.buttonText}>Esqueceu a senha</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </ImageBackground>
   );

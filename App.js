@@ -8,8 +8,8 @@ import EsqueceuSenha from './src/services/EsqueceuSenha.jsx'
 import Denuncia from './src/services/Denuncia.jsx'
 import DenunciaSucesso from './src/services/DenunciaSucesso.jsx'
 import CadastroSucesso from './src/services/CadastroSucesso.jsx'
-import LoginSucesso from './src/services/LoginSucesso.jsx'
 import SenhaSucesso from './src/services/SenhaSucesso.jsx'
+import LoginSucesso from './src/services/LoginSucesso.jsx'
 
 
 const Stack = createStackNavigator();
@@ -25,8 +25,8 @@ const AppNavigator = () => {
         <Stack.Screen name ='Denuncia' component={Denuncia} />
         <Stack.Screen name ='DenunciaSucesso' component={DenunciaSucesso} />
         <Stack.Screen name ='CadastroSucesso' component={CadastroSucesso} />
-        <Stack.Screen name ='LoginSucesso' component={LoginSucesso} />
         <Stack.Screen name ='SenhaSucesso' component={SenhaSucesso} />
+        <Stack.Screen name ='LoginSucesso' component={LoginSucesso} />
       </Stack.Navigator>
     </NavigationContainer>
   );
