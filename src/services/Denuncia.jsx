@@ -6,8 +6,8 @@ import { collection, addDoc } from 'firebase/firestore';
 
 export default function Denuncia() {
   const [cidade, setCidade] = useState('');
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
+  const [praia, setPraia] = useState('');
+  const [referencia, setReferencia] = useState('');
   const [descricao, setDescricao] = useState('');
   const navigation = useNavigation();
 
@@ -15,8 +15,8 @@ export default function Denuncia() {
     try {
       const docRef = await addDoc(collection(db, 'denuncias'), {
         cidade,
-        latitude,
-        longitude,
+        praia,
+        referencia,
         descricao,
         timestamp: new Date(),
       });
@@ -28,7 +28,7 @@ export default function Denuncia() {
   };
 
   const validarCampos = () => {
-    if (cidade.trim() === '' || latitude.trim() === '' || longitude.trim() === '' || descricao.trim() === '') {
+    if (cidade.trim() === '' || praia.trim() === '' || referencia.trim() === '' || descricao.trim() === '') {
       Alert.alert('Por favor, preencha todos os campos.');
       return false;
     }
@@ -53,15 +53,15 @@ export default function Denuncia() {
           style={styles.input}
         />
         <TextInput
-          placeholder='Latitude:'
-          value={latitude}
-          onChangeText={setLatitude}
+          placeholder='Praia:'
+          value={praia}
+          onChangeText={setPraia}
           style={styles.input}
         />
         <TextInput
-          placeholder='Longitude:'
-          value={longitude}
-          onChangeText={setLongitude}
+          placeholder='Referência:'
+          value={referencia}
+          onChangeText={setReferencia}
           style={styles.input}
         />
         <TextInput
