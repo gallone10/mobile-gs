@@ -14,7 +14,7 @@ Senha: 123456
 API de Cadastro de Denúncia:
 Essa API permite que os usuários do aplicativo cadastrem denúncias sobre incidentes ou problemas que observaram. Ao receber os detalhes da denúncia, como localização, descrição e outras informações relevantes, ela os armazena no banco de dados do aplicativo. Essas denúncias podem ser usadas para alertar as autoridades competentes ou para acompanhar e resolver questões específicas dentro da comunidade. Essa API é fundamental para garantir a participação e o engajamento dos usuários na melhoria e segurança do ambiente em que vivem.
 Exemplo:
-Cidade:Sp
-Longitude: 1000
-Latitude: 500
+Cidade: Ubatuba
+Praia: Lagoinha
+Referência: Perto do quiosque do tio zé
 Descreva o que está acontecendo: Descarte inapropriado de lixo
